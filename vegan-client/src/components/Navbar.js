@@ -10,10 +10,10 @@ const Navbar = () => {
     return (
         <nav>
             <Link to="/"><button>Home</button></Link>
+            <Link to="/recipes"> <button>Recipes</button></Link>
             { isLoggedIn && (
                 <>
-                    <Link to="/">
-                    {/* nachher wenn Model kreiert: <Link to="/myprofile" oder "/" */}
+                    <Link to="/myprofile">
                         <button>My Profile</button>
                     </Link>
                     <button onClick={logOutUser}>Logout</button>
