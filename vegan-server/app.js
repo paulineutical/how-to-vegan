@@ -14,6 +14,9 @@ require("./config")(app);
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/api", indexRoutes);
+
+const recipeRoutes = require("./routes/recipe.routes");
+app.use("/api", recipeRoutes);
  
 const authRouter = require("./routes/auth.routes");       //  <== IMPORT
 app.use("/auth", authRouter);                             //  <== ADD
