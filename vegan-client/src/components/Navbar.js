@@ -13,6 +13,11 @@ const Navbar = () => {
                 <Link to="/"><button>Home</button></Link>
                 <Link to="/recipes"><button>Recipes</button></Link>
             </div>
+            <div>
+                { isLoggedIn && (
+                    <span>Welcome, {user && user.name}!</span>
+                )}
+            </div>
             <div className="nav-right">
                 { isLoggedIn && (
                     <>
@@ -20,13 +25,12 @@ const Navbar = () => {
                             <button>My Profile</button>
                         </Link>
                         <button onClick={logOutUser}>Logout</button>
-                        <span>Welcome {user && user.name}!</span>
                     </>
                 )}
             {!isLoggedIn && (
                 <>
-                    <Link to="/signup"> <button>Sign up</button></Link>
-                    <Link to="/login"> <button>Log in</button></Link>
+                    <Link to="/signup"><button>Sign up</button></Link>
+                    <Link to="/login"><button>Log in</button></Link>
                 </>
             )}
             </div>
