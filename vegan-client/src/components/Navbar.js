@@ -20,7 +20,7 @@ const Navbar = () => {
                             <button>My Profile</button>
                         </Link>
                         <button onClick={logOutUser}>Logout</button>
-                        <span>{user && user.name}</span>
+                        <span>Welcome {user && user.name}!</span>
                     </>
                 )}
             {!isLoggedIn && (
