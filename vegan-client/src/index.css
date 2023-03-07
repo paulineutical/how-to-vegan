@@ -15,9 +15,10 @@ code {
 nav {
   width: 100wv;
   height: 60px;
-  background-color:blue;
+  background-color:rgb(0, 177, 71);
   color: white;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -25,6 +26,21 @@ nav > * {
   margin: 0 10px;
 }
 
-.nav-left {
 
+/* .nav-left {
+ align-items:
+} */
+
+div.RecipeCard {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+div.RecipeCard:hover {
+  border: 1px solid #777;
+}
+div.RecipeCard img {
+  width: 100%;
+  height: auto;
 }

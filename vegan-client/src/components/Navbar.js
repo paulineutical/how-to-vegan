@@ -10,19 +10,19 @@ const Navbar = () => {
     return (
         <nav>
             <div className="nav-left">
-            <Link to="/"><button>Home</button></Link>
-            <Link to="/recipes"><button>Recipes</button></Link>
-            { isLoggedIn && (
-                <>
-                    <Link to="/myprofile">
-                        <button>My Profile</button>
-                    </Link>
-                    <button onClick={logOutUser}>Logout</button>
-                    <span>{user && user.name}</span>
-                </>
-            )}
+                <Link to="/"><button>Home</button></Link>
+                <Link to="/recipes"><button>Recipes</button></Link>
             </div>
             <div className="nav-right">
+                { isLoggedIn && (
+                    <>
+                        <Link to="/myprofile">
+                            <button>My Profile</button>
+                        </Link>
+                        <button onClick={logOutUser}>Logout</button>
+                        <span>{user && user.name}</span>
+                    </>
+                )}
             {!isLoggedIn && (
                 <>
                     <Link to="/signup"> <button>Sign up</button></Link>
