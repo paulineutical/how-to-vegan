@@ -7,7 +7,7 @@ import axios from "axios"
 const AddRecipe = () => {
     const [title, setTitle] = useState("")
     const [ingredients, setIngredients] = useState("")
-    const [instruction, setInstruction] = useState("")
+    const [instructions, setinstructions] = useState("")
 
     const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ const AddRecipe = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const requestBody = { title, ingredients, instruction }
+    const requestBody = { title, ingredients, instructions }
     
     axios.post("http://localhost:5005/api/recipe", requestBody)
       .then(response => {
@@ -31,9 +31,9 @@ const AddRecipe = () => {
     setIngredients(e.target.value)
   }
 
-  const handleInstructionChange = (e) => {
+  const handleinstructionsChange = (e) => {
     console.log(e.target.value)
-    setInstruction(e.target.value)
+    setinstructions(e.target.value)
   }
 
 
@@ -41,9 +41,9 @@ const AddRecipe = () => {
     return (
         <div className="AddRecipe">
             <form onSubmit={handleSubmit}>
-                <input name="title" type="text" value={title} onChange={handleTitleChange} />
+                <textarea name="title" type="text" value={title} onChange={handleTitleChange} />
                 <input name="ingredients" type="text" value={ingredients} onChange={handleIngredientsChange} />
-                <input name="instruction" type="text" value={instruction} onChange={handleInstructionChange} />
+                <input name="instructions" type="text" value={instructions} onChange={handleinstructionsChange} />
                 <input type="submit" />
                 {/* <input name="allergies" type="checkbox" onChange={(e) => handleAllergiesChange}/> */}
             </form>

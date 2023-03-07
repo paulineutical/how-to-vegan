@@ -9,6 +9,7 @@ const Navbar = () => {
     const {isLoggedIn, user, logOutUser} = useContext(AuthContext)
     return (
         <nav>
+            <div className="nav-left">
             <Link to="/"><button>Home</button></Link>
             <Link to="/recipes"><button>Recipes</button></Link>
             { isLoggedIn && (
@@ -20,13 +21,15 @@ const Navbar = () => {
                     <span>{user && user.name}</span>
                 </>
             )}
-
+            </div>
+            <div className="nav-right">
             {!isLoggedIn && (
                 <>
                     <Link to="/signup"> <button>Sign up</button></Link>
                     <Link to="/login"> <button>Log in</button></Link>
                 </>
             )}
+            </div>
         </nav>
     );
 };
