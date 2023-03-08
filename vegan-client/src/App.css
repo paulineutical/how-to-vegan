@@ -1,6 +1,6 @@
 .App {
   font-family: 'Nunito Sans', sans-serif;
-  background: rgb(255,254,245);
+  /* background: rgb(255,254,245); */
   background: radial-gradient(circle, rgba(255,254,245,1) 0%, rgba(239,255,236,1) 100%);
 }
 

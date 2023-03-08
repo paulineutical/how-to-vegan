@@ -100,17 +100,19 @@ const AddRecipe = () => {
                 <textarea id="instructions" name="instructions" type="text" value={instructions} onChange={handleinstructionsChange} />
                 <ul>
                   <label for="allergies">Please select the following ingredients, if your recipe contains one or more: </label>
-                  <li>
+                  <li className="checkbox">
                   <input name="gluten" type="checkbox" onChange={handleAllergiesChange}/>
                   <label for="gluten">Gluten</label>
                   </li>
-                  <li>
+                  <li className="checkbox">
                   <input name="soy" type="checkbox" onChange={handleAllergiesChange}/>
                   <label for="soy">Soy</label>
                   </li>
+                  <li className="checkbox">
                   <input name="peanut" type="checkbox" onChange={handleAllergiesChange}/>
                   <label for="peanut">Peanut</label>
-                  <li>
+                  </li>
+                  <li className="checkbox">
                   <input name="almond" type="checkbox" onChange={handleAllergiesChange}/>
                   <label for="almond">Almond</label>
                   </li>

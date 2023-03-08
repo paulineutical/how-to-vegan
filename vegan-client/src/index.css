@@ -152,3 +152,7 @@ nav span {
 #substitutes h2 {
   font-weight: lighter;
 }
+
+.checkbox {
+  list-style-type: none;
+}
