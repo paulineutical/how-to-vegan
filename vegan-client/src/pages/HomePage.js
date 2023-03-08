@@ -1,4 +1,5 @@
 import React from "react";
+import image from "../image-banner.jpeg"
 
 const HomePage = () => {
   return (
@@ -26,6 +27,7 @@ const HomePage = () => {
           friendly life.
         </p>
       </div>
+      <img id="image-banner" src={image} alt="banner" class="responsive" />
       <div className="intro-for-substitutes">
         <p>
           In the 1950s, according to popular opinion, a complete meal usually
@@ -39,10 +41,10 @@ const HomePage = () => {
           Meanwhile, the renunciation is also really easy, because there are
           enough meat alternatives that really do not have to hide in terms of
           taste. Lets take a closer look at the tastiest products, some of which
-          you can prepare just like real meat.
+          you can prepare just like real meat:
         </p>
       </div>
-      <div className="substitutes">
+      <div id="substitutes">
         <h2>1. Tofu</h2>
         <p>
           The best known and most popular alternative to meat is certainly tofu,
@@ -92,7 +94,6 @@ const HomePage = () => {
           unfortunately it is not very bioavailable. For this reason, you should
           add other vegan protein sources to your diet. Its also possible to
           make flour to a seitan dough by yourself:
-        </p>
         <iframe
           width="560"
           height="315"
@@ -100,8 +101,9 @@ const HomePage = () => {
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+          allowfullscreen>
+        </iframe>
+        </p>
         <h2>4. Jackfruit</h2>
         <p>
           Unlike most meat alternatives, jackfruit is unfortunately not such a

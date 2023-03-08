@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage";
 import AddRecipe from "./pages/AddRecipe";
 import RecipeList from './pages/RecipeList';
 import RecipeDetailsPage from './pages/RecipeDetailsPage';
+import ProfilePage from './pages/ProfilePage';
 
 const API_URL = "http://localhost:5005"
 
@@ -55,6 +56,7 @@ function App() {
         <Route path="/recipes" element={ <RecipeList recipes={recipes} /> } />
         <Route path="/add-recipe" element={ <AddRecipe /> } />
         <Route path="/recipes/:recipeId" element={ <RecipeDetailsPage /> } />
+        <Route path="/myprofile" element={ <ProfilePage /> } />
       </Routes>
     </div>
   );

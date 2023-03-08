@@ -115,7 +115,7 @@ const AddRecipe = () => {
                   <label for="almond">Almond</label>
                   </li>
                 </ul>
-                <button type="submit">Add your vegan recipe</button>
+                <button class="button-83" role="button" type="submit">Add your vegan recipe</button>
             </form>
         </div>
     );
