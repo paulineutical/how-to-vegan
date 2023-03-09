@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
+const API_URL = process.env.REACT_APP_API_URL;
 
 const RecipeDetailsPage = () => {
   const { recipeId } = useParams();
