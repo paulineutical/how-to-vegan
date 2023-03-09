@@ -1,32 +1,47 @@
-import React, { useState } from 'react';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
 
-const RecipeDetailsPage = (props) => {
+const RecipeDetailsPage = () => {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState(null);
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5005/api/recipe/${recipeId}`)
+      .then((response) => {
+        setRecipe(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [recipeId]);
 
-  // axios.get("http://localhost:5005/recipe/{recipeId}")
-  // .then((apiResponse) => {
-      // setRecipe(apiResponse.data);
-  // });
-
-
-    return (
-        <div>
+  return (
+    <div>
       <Navbar />
       <div>
-          <div className="RecipeCard">
-            <img src={recipe.imageUrl} alt="recipe-image" />
-            <h2>{recipe.title}</h2>
-            <p>{recipe.ingredients}</p>
-            <p>{recipe.instructions}</p>
-            <p>{recipe.allergies}</p>
-          </div>
+        <div className="RecipeDetails">
+          {recipe && (
+            <>
+              <img src={recipe.imageUrl} alt="recipe-image" />
+              <h2>{recipe.title}</h2>
+              <p>{recipe.ingredients}</p>
+              <p>{recipe.instructions}</p>
+              <p>Allergies:</p>
+              <ul>
+                {recipe.allergies.gluten && <li>Gluten</li>}
+                {recipe.allergies.soy && <li>Soy</li>}
+                {recipe.allergies.peanut && <li>Peanut</li>}
+                {recipe.allergies.almond && <li>Almond</li>}
+              </ul>
+            </>
+          )}
+        </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default RecipeDetailsPage;

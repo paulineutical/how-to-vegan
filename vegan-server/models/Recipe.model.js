@@ -11,7 +11,11 @@ const recipeSchema = new Schema({
         soy: Boolean,
         peanut: Boolean,
         almond: Boolean
-    }
+    }, 
+    user: { 
+        type: Schema.Types.ObjectId,
+        ref: "User"
+     }
 });
    
 module.exports = model("Recipe", recipeSchema);

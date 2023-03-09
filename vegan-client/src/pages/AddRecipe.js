@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios"
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth.context';
 
 
 const AddRecipe = () => {
@@ -13,6 +15,8 @@ const AddRecipe = () => {
     const [soy, setSoy] = useState(false)
     const [peanut, setPeanut] = useState(false)
     const [almond, setAlmond] = useState(false) 
+    
+    const { user } = useContext(AuthContext)
 
 
     const navigate = useNavigate()
@@ -76,7 +80,7 @@ const AddRecipe = () => {
     const handleSubmit = (e) => {
       e.preventDefault()
 
-      const requestBody = { title, imageUrl, ingredients, instructions, allergies: {gluten, soy, peanut, almond} }
+      const requestBody = { title, imageUrl, ingredients, instructions, allergies: {gluten, soy, peanut, almond}, user }
       console.log(requestBody)
       
       axios.post("http://localhost:5005/api/recipe", requestBody)

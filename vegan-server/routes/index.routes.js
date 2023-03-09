@@ -14,4 +14,17 @@ router.get("/user/:userid", (req, res, next) => {
   .catch(err => console.log(err))
 });
 
+router.post("/user/:userid/avatar", (req, res, next) => {
+  const userid = req.params.userid
+  const imageUrl = req.body.avatar
+  console.log(imageUrl)
+  User.findByIdAndUpdate(userid, {image: imageUrl}, {new:true})
+  .then ((user) => {
+     console.log(user)
+      res.status(200).json(user)
+    })
+    .catch(err => console.log(err))
+  })
+
+
 module.exports = router;
