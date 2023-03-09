@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios"
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
-
+const API_URL = process.env.REACT_APP_API_URL;
 
 const AddRecipe = () => {
     const [title, setTitle] = useState("")
@@ -68,7 +68,7 @@ const AddRecipe = () => {
       // req.body to .create() method when creating a new movie in '/api/movies' POST route
       uploadData.append("imageUrl", e.target.files[0]);
   
-      axios.post("http://localhost:5005/api/upload", uploadData)
+      axios.post(`${API_URL}/api/upload`, uploadData)
         .then(response => {
           console.log("response ImageUrl is: ", response);
           // response carries "fileUrl" which we can use to update the state
@@ -83,7 +83,7 @@ const AddRecipe = () => {
       const requestBody = { title, imageUrl, ingredients, instructions, allergies: {gluten, soy, peanut, almond}, user }
       console.log(requestBody)
       
-      axios.post("http://localhost:5005/api/recipe", requestBody)
+      axios.post(`${API_URL}/api/recipe`, requestBody)
         .then(() => {
           navigate("/recipes")
         })

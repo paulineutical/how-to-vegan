@@ -9,7 +9,7 @@ const RecipeDetailsPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/api/recipe/${recipeId}`)
+      .get(`${API_URL}/api/recipe/${recipeId}`)
       .then((response) => {
         setRecipe(response.data);
       })

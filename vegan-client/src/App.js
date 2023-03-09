@@ -13,7 +13,7 @@ import RecipeList from './pages/RecipeList';
 import RecipeDetailsPage from './pages/RecipeDetailsPage';
 import ProfilePage from './pages/ProfilePage';
 
-const API_URL = "http://localhost:5005"
+const API_URL = process.env.REACT_APP_API_URL
 
 function App() {
   const [recipes, setRecipes] = useState([])

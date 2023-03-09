@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+const API_URL = process.env.REACT_APP_API_URL;
 
 const ProfilePage = () => {
   const authContext = useContext(AuthContext);
@@ -48,7 +49,7 @@ const ProfilePage = () => {
     console.log(requestBody);
 
     axios
-      .post("http://localhost:5005/api/recipe", requestBody)
+      .post(`${API_URL}/api/recipe`, requestBody)
       .then(() => {
         navigate("/recipes");
       })
@@ -60,7 +61,7 @@ const ProfilePage = () => {
       return;
     }
     axios
-      .get("http://localhost:5005/api/user/" + authContext.user._id)
+      .get(`${API_URL}/api/user/`+ authContext.user._id)
       .then((response) => {
         setImage(response.data.image);
       });
@@ -76,10 +77,10 @@ const ProfilePage = () => {
     // req.body to .create() method when creating a new movie in '/api/movies' POST route
     uploadData.append("imageUrl", e.target.files[0]);
 
-    axios.post("http://localhost:5005/api/upload", uploadData)
+    axios.post(`${API_URL}/api/upload`, uploadData)
       .then(response => {
         // response carries "fileUrl" which we can use to update the state
-        axios.post(`http://localhost:5005/api/user/${authContext.user._id}/avatar`, {avatar: response.data.imageUrl})
+        axios.post(`${API_URL}/api/user/${authContext.user._id}/avatar`, {avatar: response.data.imageUrl})
         .then(()=> {
           console.log("HIER RESPONSE.DATA.IMAGEURL:", response.data.imageUrl)
           setImage(response.data.imageUrl);
