@@ -172,8 +172,3 @@ nav span {
   border: dotted;
   border-width: 2px;
 }
-
-.LoginPage {
-  display: flex;
-  justify-content: center;
-}
